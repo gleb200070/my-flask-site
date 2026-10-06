@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-wwidth, initial-scale=1.0">
+
+    <title>Flexy world</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+    <h1> Flexy WRLD</h1>
+
+    <p>
+        Игрушки, созданные на 3D-принтере
+    </p>
+
+</header>
+
+<section class="about">
+
+    <h2>О магазине</h2>
+
+    <p>
+        Мы создаем интересные и оригинальные
+        игрушки с помощью 3D-печати
+    </p>
+
+    <p>
+        Вы можете выбрать готовую игрушку
+        или заказать для себя свою модель
+    </p>
+
+    </section>
+
+
+    <main>
+
+        <h2>🧸 Наши игрушки</h2>
+
+        <div class="toys">
+
+
+            {% for toy in toys %}
+
+            <div class="toy">
+
+                <img src="{{ url_for('static', filename='images/' + toy.image) }}"
+                     alt="{{ toy.name }}">
+
+                <h3>
+                    {{ toy.name }}
+                </h3>
+
+                <p>
+                    Оригинальная игрушка,
+                    напечатанная на 3D-принтере.
+                </p>
+
+                <p class="price">
+                    {{ toy.price }} ₽
+                </p>
+
+                <a href="{{ toy.Avito }}" target="_blank">
+                    Купить на Авито
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+    </main>
+
+
+    <section class="order">
+
+        <h2>
+            🖨️ Печать игрушек на заказ
+        </h2>
+
+        <p>
+            Хотите необычную игрушку?
+            Мы можем напечатать её специально для вас.
+        </p>
+
+        <p>
+            Можно выбрать модель, цвет и размер
+            или предложить свою идею.
+        </p>
+
+        <p>
+            Также можно предоставить собственную
+            3D-модель для печати.
+        </p>
+
+        <a href="https://www.avito.ru/moskva/tovary_dlya_detey_i_igrushki/3d-pechat_igrushek_na_zakaz_8453015948" target="_blank">
+            Заказать печать
+        </a>
+
+    </section>
+
+
+    <footer>
+
+       <p>
+            Печать игрушек на заказ
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
